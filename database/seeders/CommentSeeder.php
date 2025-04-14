@@ -5,16 +5,16 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Like;
+use App\Models\Comment;
 
-class LikeSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        Like::factory()
+        Comment::factory()
             ->count(10)
             ->create();
     }

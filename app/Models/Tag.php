@@ -3,7 +3,7 @@ declare (strict_types= 1);
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
+//use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 /**
@@ -13,7 +13,7 @@ use Illuminate\Database\Eloquent\Model;
  *   title="Tag",
  *   description="Tags used in resources",
  *   @OA\Property(property="id", type="integer", example=1),
- *   @OA\Property(property="name", type="string", example="UseState & UseEffect"),
+ *   @OA\Property(property="name", type="string", example="debugging"),
  *   @OA\Property(property="created_at", type="string", format="date-time", example="2025-03-17T19:23:41.000000Z"),
  *   @OA\Property(property="updated_at", type="string", format="date-time", example="2025-03-17T19:23:41.000000Z")
  * )
@@ -21,7 +21,7 @@ use Illuminate\Database\Eloquent\Model;
 
 class Tag extends Model
 {
-    use HasFactory;
+    //use HasFactory;
     protected $table = 'tags';
     protected $fillable = ['name'];
 

@@ -1,10 +1,11 @@
 <?php
+declare (strict_types= 1);
 
 namespace Database\Seeders;
 
-use App\Models\User;
-// use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\User;
 
 class DatabaseSeeder extends Seeder
 {
@@ -19,13 +20,14 @@ class DatabaseSeeder extends Seeder
             'password' => bcrypt('1234')
         ]);
 
-        User::factory(10)->create();
+        User::factory()->count(10)->create();
 
         $this->call([
-            //UserSeeder::class,
+            TagSeeder::class,
             ResourceSeeder::class,
             BookmarkSeeder::class,
-            LikeSeeder::class
+            LikeSeeder::class,
+            CommentSeeder::class
         ]);
     }
 }

@@ -13,7 +13,7 @@ class CommentObserver implements ShouldHandleEventsAfterCommit
      */
     public function created(Comment $comment): void
     {
-        $comment->resource()->increment('like_count');
+        $comment->resource()->increment('comment_count');
     }
 
     /**
@@ -21,7 +21,7 @@ class CommentObserver implements ShouldHandleEventsAfterCommit
      */
     public function deleted(Comment $comment): void
     {
-        $comment->resource()->decrement('like_count');
+        $comment->resource()->decrement('comment_count');
     }
 
     /**
@@ -29,7 +29,7 @@ class CommentObserver implements ShouldHandleEventsAfterCommit
      */
     public function restored(Comment $comment): void
     {
-        $comment->resource()->increment('like_count');
+        $comment->resource()->increment('comment_count');
     }
 
     /**
@@ -37,6 +37,6 @@ class CommentObserver implements ShouldHandleEventsAfterCommit
      */
     public function forceDeleted(Comment $comment): void
     {
-        $comment->resource()->decrement('like_count');
+        $comment->resource()->decrement('comment_count');
     }
 }
