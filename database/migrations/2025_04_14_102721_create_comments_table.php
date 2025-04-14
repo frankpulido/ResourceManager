@@ -12,7 +12,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('likes', function (Blueprint $table) {
+        Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('user_id')->unsigned();
             $table->foreign('user_id')
@@ -26,6 +26,7 @@ return new class extends Migration
                 ->on('resources')
                 ->onUpdate('cascade') // Updates if resource_id is modified in resources
                 ->onDelete('restrict'); // Stays if resource_id is destroyed in resources
+            $table->text('comment');
             $table->timestamps();
 
             $table->unique(['user_id', 'resource_id']);
@@ -37,6 +38,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        Schema::dropIfExists('likes');
+        Schema::dropIfExists('comments');
     }
 };

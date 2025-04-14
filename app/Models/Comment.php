@@ -1,5 +1,5 @@
 <?php
-declare(strict_types = 1);
+declare(strict_types=1);
 
 namespace App\Models;
 
@@ -8,22 +8,27 @@ use Illuminate\Database\Eloquent\Model;
 
 /**
  * @OA\Schema(
- *     schema="Bookmark",
+ *     schema="Comment",
  *     type="object",
- *     title="Bookmark",
- *     @OA\Property(property="id", type="integer", example=9),
+ *     title="Comment",
+ *     @OA\Property(property="id", type="integer", example=1),
  *     @OA\Property(property="user_id", type="integer", description="Foreign key representing the ID of the user", example=6729608),
- *     @OA\Property(property="resource_id", type="integer", description="Foreign key representing the ID of the bookmarked resource", example=10),
+ *     @OA\Property(property="resource_id", type="integer", description="Foreign key representing the ID of the resource", example=10),
+ *     @OA\Property(property="comment", type="text", description="The comment text", example="This is a comment."),
  *     @OA\Property(property="created_at", type="string", format="date-time", example="2025-03-17T19:23:41.000000Z"),
  *     @OA\Property(property="updated_at", type="string", format="date-time", example="2025-03-17T19:23:41.000000Z")
- * )
+ *)
 */
 
-class Bookmark extends Model
+class Comment extends Model
 {
     use HasFactory;
-    protected $table = 'bookmarks';
-    protected $fillable = ['user_id', 'resource_id'];
+    protected $table = 'comments';
+    protected $fillable = [
+        'user_id',
+        'resource_id',
+        'comment'
+    ];
 
     public function user()
     {
