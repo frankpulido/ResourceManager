@@ -1,0 +1,257 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "Swagger Documentation for ITA-Wiki",
+        "description": "Project ITA-Wiki documentation wall",
+        "version": "1.0.0.0"
+    },
+    "paths": {
+        "/api/resources": {
+            "get": {
+                "tags": [
+                    "Resources"
+                ],
+                "summary": "Get all resources",
+                "description": "Returns a list of all resources",
+                "operationId": "ee96de2f37d473ea4740b7700ddd1daf",
+                "responses": {
+                    "200": {
+                        "description": "Resource list",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "type": "array",
+                                    "items": {
+                                        "$ref": "#/components/schemas/Resource"
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    },
+    "components": {
+        "schemas": {
+            "Bookmark": {
+                "title": "Bookmark",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 9
+                    },
+                    "user_id": {
+                        "description": "Foreign key representing the ID of the user",
+                        "type": "integer",
+                        "example": 6729608
+                    },
+                    "resource_id": {
+                        "description": "Foreign key representing the ID of the bookmarked resource",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Comment": {
+                "title": "Comment",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "description": "Foreign key representing the ID of the user",
+                        "type": "integer",
+                        "example": 6729608
+                    },
+                    "resource_id": {
+                        "description": "Foreign key representing the ID of the resource",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "comment": {
+                        "description": "The comment text",
+                        "type": "text",
+                        "example": "This is a comment."
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Like": {
+                "title": "Like",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "description": "Foreign key representing the ID of the user",
+                        "type": "integer",
+                        "example": 6729608
+                    },
+                    "resource_id": {
+                        "description": "Foreign key representing the ID of the liked resource",
+                        "type": "integer",
+                        "example": 10
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Resource": {
+                "title": "Resource",
+                "description": "Array of tags",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "user_id": {
+                        "type": "integer",
+                        "example": 12345
+                    },
+                    "title": {
+                        "type": "string",
+                        "example": "Lorem Ipsum ...",
+                        "nullable": true
+                    },
+                    "description": {
+                        "type": "string",
+                        "example": "Lorem Ipsum ...",
+                        "nullable": true
+                    },
+                    "url": {
+                        "type": "string",
+                        "format": "url",
+                        "example": "https://www.hola.com",
+                        "nullable": true
+                    },
+                    "category": {
+                        "type": "string",
+                        "enum": [
+                            "Node",
+                            "React",
+                            "Angular",
+                            "JavaScript",
+                            "Java",
+                            "Fullstack PHP",
+                            "Data Science",
+                            "BBDD"
+                        ],
+                        "example": "Node"
+                    },
+                    "tags": {
+                        "type": "array",
+                        "items": {
+                            "type": "string"
+                        },
+                        "example": [
+                            "Components",
+                            "UseState & UseEffect",
+                            "Eventos",
+                            "Renderizado condicional",
+                            "Listas",
+                            "Estilos",
+                            "Debugging",
+                            "React Router"
+                        ]
+                    },
+                    "type": {
+                        "type": "string",
+                        "enum": [
+                            "Video",
+                            "Cursos",
+                            "Blog"
+                        ],
+                        "example": "Video"
+                    },
+                    "bookmark_count": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "like_count": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "comment_count": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    }
+                },
+                "type": "object"
+            },
+            "Tag": {
+                "title": "Tag",
+                "description": "Tags used in resources",
+                "properties": {
+                    "id": {
+                        "type": "integer",
+                        "example": 1
+                    },
+                    "name": {
+                        "type": "string",
+                        "example": "debugging"
+                    },
+                    "created_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    },
+                    "updated_at": {
+                        "type": "string",
+                        "format": "date-time",
+                        "example": "2025-03-17T19:23:41.000000Z"
+                    }
+                },
+                "type": "object"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Resources",
+            "description": "Resources"
+        }
+    ]
+}
